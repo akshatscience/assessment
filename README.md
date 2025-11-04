@@ -34,5 +34,6 @@ python manage.py makemigrations
 python manage.py runserver
 ```
 
+
 ## Notes
 - Ensure your settings.py loads the `.env` file by using load_dotenv().
