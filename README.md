@@ -10,12 +10,12 @@ to activate the created virtual environment use below command
 
 2. **Install dependencies**:
 ```powershell
-install the dependencies
+install all the dependencies inside virtual env
 pip install -r requirements.txt
 ```
 
 3. **Add environment variables**
-- Create a `.env` file in the project root.:
+- Create a `.env` file in the project root.
 ```
 SECRET_KEY='your_supabse_db_secret_key'
 API_KEY='your_weather_api_key'
