@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-2@$+m5&=x&wu6uf+-$29h6_5(5bzhwrp5v*q1x4kg$h&(sm!t-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['assessment-production-1e06.up.railway.app']
 
 
 # Application definition
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'weather.wsgi.application'
 
 DATABASES = {
     'default': {
-        dj_database_url.config(default=os.getenv('DATABASE_URL')),
-        }
+        'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+        )
+    }
 }
 
 
@@ -119,7 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
